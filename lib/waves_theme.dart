@@ -44,9 +44,9 @@ class WavesTheme {
       color: Colors.white,
     ),
     bodyText2: GoogleFonts.openSans(
-      fontSize: 14.0,
+      fontSize: 16.0,
       fontWeight: FontWeight.w400,
-      color: Colors.white,
+      color: Colors.grey[300],
     ),
     headline1: GoogleFonts.openSans(
       fontSize: 25.0,
@@ -54,8 +54,8 @@ class WavesTheme {
       color: Colors.white,
     ),
     headline2: GoogleFonts.openSans(
-      fontSize: 21.0,
-      fontWeight: FontWeight.w700,
+      fontSize: 23.0,
+      fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
     headline3: GoogleFonts.openSans(

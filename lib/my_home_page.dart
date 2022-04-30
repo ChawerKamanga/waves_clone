@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:waves_clone/for_you_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   final String appName;
@@ -14,10 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+    ForYouScreen(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -44,14 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {},
           icon: const Icon(
             Icons.search,
-            size: 25,
+            size: 28,
           ),
         ),
         title: Text(
           'Waves',
-          style: GoogleFonts.nunitoSans(
+          style: GoogleFonts.openSans(
             fontSize: 21.0,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
@@ -59,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: const [
           Icon(
             Icons.settings_outlined,
-            size: 25,
+            size: 28,
           ),
         ],
       ),
