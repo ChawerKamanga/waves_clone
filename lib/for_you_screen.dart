@@ -11,6 +11,7 @@ class ForYouScreen extends StatelessWidget {
     return Container(
       color: Colors.black,
       child: ListView(
+        physics: const AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         children: [
           Padding(
@@ -116,23 +117,45 @@ class ForYouScreen extends StatelessWidget {
             ],
             // itemBuilder: (context, index) => buildImageCard(index),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          SizedBox(
+            height: 360,
+            width: 360,
+            child: Column(
               children: [
-                Text(
-                  'Top artists',
-                  style: WavesTheme.darkTextTheme.headline2,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.arrow_forward,
-                    size: 30,
-                    color: Colors.purple[600],
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Top artists',
+                        style: WavesTheme.darkTextTheme.headline2,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_forward,
+                          size: 30,
+                          color: Colors.purple[600],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+                Flexible(
+                  child: ListView.separated(
+                    itemCount: 3,
+                    padding: const EdgeInsets.all(8),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return buildArtistCol(index);
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const SizedBox(width: 16);
+                    },
+                  ),
+                )
               ],
             ),
           ),
@@ -228,6 +251,32 @@ class ForYouScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Column buildArtistCol(int index) {
+    List<String> artistsImages = [
+      'assets/img/andy.jpg',
+      'assets/img/liwu.jpg',
+      'assets/img/suffix.jpg'
+    ];
+
+    List<String> artistsNames = ['Andy Mineo', 'Liwu', 'Suffix'];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(200),
+          child: Image.asset(
+            artistsImages[index],
+            width: 150,
+            height: 150,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Text(artistsNames[index]),
+      ],
     );
   }
 }
