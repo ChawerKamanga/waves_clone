@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:waves_clone/waves_theme.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ForYouScreen extends StatelessWidget {
   const ForYouScreen({Key? key}) : super(key: key);
@@ -57,7 +58,60 @@ class ForYouScreen extends StatelessWidget {
               'Suggestions',
               style: WavesTheme.darkTextTheme.headline2,
             ),
-          )
+          ),
+          StaggeredGrid.count(
+            crossAxisCount: 5,
+            mainAxisSpacing: 4,
+            crossAxisSpacing: 4,
+            children: [
+              StaggeredGridTile.count(
+                crossAxisCellCount: 2,
+                mainAxisCellCount: 2,
+                child: buildImageCard(0),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(1),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 2,
+                mainAxisCellCount: 2,
+                child: buildImageCard(2),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(3),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(4),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(5),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(6),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(7),
+              ),
+              StaggeredGridTile.count(
+                crossAxisCellCount: 1,
+                mainAxisCellCount: 1,
+                child: buildImageCard(8),
+              ),
+            ],
+            // itemBuilder: (context, index) => buildImageCard(index),
+          ),
         ],
       ),
     );
@@ -86,6 +140,31 @@ class ForYouScreen extends StatelessWidget {
           style: WavesTheme.darkTextTheme.bodyText2,
         )
       ],
+    );
+  }
+
+  Container buildImageCard(int index) {
+    List<String> images = [
+      'for_my_friends.jpg',
+      'human_definition.jpg',
+      'alinafe_art.jpg',
+      'the_separation.jpg',
+      'freedom.png',
+      'hga.jpg',
+      'never_land.jpg',
+      'the_sword.jpg',
+      'we_are_alone.png',
+    ];
+
+    return Container(
+      margin: const EdgeInsets.all(8),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Image.asset(
+          'assets/img/${images[index]}',
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
