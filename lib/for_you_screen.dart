@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:waves_clone/waves_theme.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -42,14 +43,17 @@ class ForYouScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildIconAction(Icons.history, 'History', Colors.blueAccent,
-                  Colors.blueAccent[400]!),
+              buildIconAction(Icons.history, 'History',
+                  Colors.blueAccent.withOpacity(0.4), Colors.blueAccent[400]!),
               buildIconAction(Icons.add_to_photos_rounded, 'Last Added',
-                  Colors.redAccent, Colors.redAccent[400]!),
-              buildIconAction(Icons.auto_graph, 'Most Played',
-                  Colors.purpleAccent, Colors.purpleAccent[400]!),
-              buildIconAction(Icons.shuffle, 'Shuffle', Colors.greenAccent,
-                  Colors.green[400]!),
+                  Colors.redAccent.withOpacity(0.4), Colors.redAccent[400]!),
+              buildIconAction(
+                  Icons.show_chart_outlined,
+                  'Most Played',
+                  Colors.purpleAccent.withOpacity(0.4),
+                  Colors.purpleAccent[400]!),
+              buildIconAction(Icons.shuffle, 'Shuffle',
+                  Colors.greenAccent.withOpacity(0.4), Colors.green[400]!),
             ],
           ),
           Padding(
@@ -61,13 +65,13 @@ class ForYouScreen extends StatelessWidget {
           ),
           StaggeredGrid.count(
             crossAxisCount: 5,
-            mainAxisSpacing: 4,
-            crossAxisSpacing: 4,
+            mainAxisSpacing: 2,
+            crossAxisSpacing: 2,
             children: [
               StaggeredGridTile.count(
                 crossAxisCellCount: 2,
                 mainAxisCellCount: 2,
-                child: buildImageCard(0),
+                child: buildTextCard(),
               ),
               StaggeredGridTile.count(
                 crossAxisCellCount: 1,
@@ -111,6 +115,26 @@ class ForYouScreen extends StatelessWidget {
               ),
             ],
             // itemBuilder: (context, index) => buildImageCard(index),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Top artists',
+                  style: WavesTheme.darkTextTheme.headline2,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.arrow_forward,
+                    size: 30,
+                    color: Colors.purple[600],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -163,6 +187,45 @@ class ForYouScreen extends StatelessWidget {
         child: Image.asset(
           'assets/img/${images[index]}',
           fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Container buildTextCard() {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.purple[900]!.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'New',
+              style: GoogleFonts.openSans(
+                  color: Colors.purple[400],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 31),
+            ),
+            Text(
+              'music',
+              style: GoogleFonts.openSans(
+                  color: Colors.purple[400],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 31),
+            ),
+            Text(
+              'mix',
+              style: GoogleFonts.openSans(
+                  color: Colors.purple[400],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 31),
+            ),
+          ],
         ),
       ),
     );

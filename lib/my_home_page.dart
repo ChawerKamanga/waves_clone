@@ -82,11 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
               label: 'Albums',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_add_disabled),
+              icon: Icon(Icons.person_add),
               label: 'Artists',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.playlist_add),
+              icon: Icon(Icons.queue_music_outlined),
               label: 'Playlists',
             ),
           ],
