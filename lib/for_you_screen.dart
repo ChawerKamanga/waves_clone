@@ -118,13 +118,13 @@ class ForYouScreen extends StatelessWidget {
             // itemBuilder: (context, index) => buildImageCard(index),
           ),
           SizedBox(
-            height: 360,
-            width: 360,
+            height: 280,
+            width: 380,
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 15.0, vertical: 20),
+                  padding:
+                      const EdgeInsets.only(left: 15.0, right: 15.0, top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -150,6 +150,56 @@ class ForYouScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
                       return buildArtistCol(index);
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const SizedBox(width: 16);
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+            child: Text(
+              'Top Albums',
+              style: WavesTheme.darkTextTheme.headline2,
+            ),
+          ),
+          SizedBox(
+            height: 280,
+            width: 360,
+            child: Column(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 15.0, right: 15.0, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Top artists',
+                        style: WavesTheme.darkTextTheme.headline2,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_forward,
+                          size: 30,
+                          color: Colors.purple[600],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Flexible(
+                  child: ListView.separated(
+                    itemCount: 5,
+                    padding: const EdgeInsets.all(8),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return buildAlbumCol(index);
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       return const SizedBox(width: 16);
@@ -270,12 +320,46 @@ class ForYouScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           child: Image.asset(
             artistsImages[index],
-            width: 150,
-            height: 150,
+            width: 170,
+            height: 170,
             fit: BoxFit.cover,
           ),
         ),
         Text(artistsNames[index]),
+      ],
+    );
+  }
+
+  Widget buildAlbumCol(int index) {
+    List<String> albumImages = [
+      'assets/img/never_land.jpg',
+      'assets/img/ricky_album.jpg',
+      'assets/img/human_definition.jpg',
+      'assets/img/we_are_alone.png',
+      'assets/img/bt_blues.jpg'
+    ];
+
+    List<String> albumNames = [
+      'Never Land II',
+      'The Ricky Show',
+      'Human Definition',
+      'We are alone Together',
+      'Blantyre Blues'
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            albumImages[index],
+            width: 170,
+            height: 170,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Text(albumNames[index]),
       ],
     );
   }
