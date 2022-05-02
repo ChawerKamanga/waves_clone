@@ -11,19 +11,19 @@ class ActionsRow extends StatelessWidget {
         buildIconAction(
             Icons.history,
             'History',
-            Colors.blueAccent.withOpacity(0.4),
+            Colors.blueAccent.withOpacity(0.2),
             Colors.blueAccent[400]!,
             context),
         buildIconAction(Icons.add_to_photos_rounded, 'Last Added',
-            Colors.redAccent.withOpacity(0.4), Colors.redAccent[400]!, context),
+            Colors.redAccent.withOpacity(0.2), Colors.redAccent[400]!, context),
         buildIconAction(
             Icons.show_chart_outlined,
             'Most Played',
-            Colors.purpleAccent.withOpacity(0.4),
+            Colors.purpleAccent.withOpacity(0.2),
             Colors.purpleAccent[400]!,
             context),
         buildIconAction(Icons.shuffle, 'Shuffle',
-            Colors.greenAccent.withOpacity(0.4), Colors.green[400]!, context),
+            Colors.greenAccent.withOpacity(0.2), Colors.green[400]!, context),
       ],
     );
   }

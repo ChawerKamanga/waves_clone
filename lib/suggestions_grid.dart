@@ -65,7 +65,7 @@ class SuggestionsGrid extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.purple[900]!.withOpacity(0.4),
+        color: Colors.purple[900]!.withOpacity(0.2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
@@ -76,21 +76,21 @@ class SuggestionsGrid extends StatelessWidget {
             Text(
               'New',
               style: GoogleFonts.openSans(
-                  color: Colors.purple[400],
+                  color: Colors.purple[600],
                   fontWeight: FontWeight.w700,
                   fontSize: 31),
             ),
             Text(
               'music',
               style: GoogleFonts.openSans(
-                  color: Colors.purple[400],
+                  color: Colors.purple[600],
                   fontWeight: FontWeight.w700,
                   fontSize: 31),
             ),
             Text(
               'mix',
               style: GoogleFonts.openSans(
-                  color: Colors.purple[400],
+                  color: Colors.purple[600],
                   fontWeight: FontWeight.w700,
                   fontSize: 31),
             ),
