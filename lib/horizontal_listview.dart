@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class HorizontalListView extends StatelessWidget {
-  const HorizontalListView({Key? key}) : super(key: key);
+  final String title;
+  final bool isForArtist;
+  const HorizontalListView(
+      {Key? key, required this.title, this.isForArtist = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class HorizontalListView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Top artists',
+                  title,
                   style: Theme.of(context).textTheme.headline2,
                 ),
                 IconButton(
@@ -36,7 +40,9 @@ class HorizontalListView extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return buildArtistCol(index);
+                return isForArtist
+                    ? buildArtistCol(index)
+                    : buildAlbumCol(index);
               },
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(width: 16);
@@ -78,6 +84,40 @@ class HorizontalListView extends StatelessWidget {
           ),
         ),
         Text(artistsNames[index]),
+      ],
+    );
+  }
+
+  Column buildAlbumCol(int index) {
+    List<String> albumImages = [
+      'never_land.jpg',
+      'ricky_album.jpg',
+      'human_definition.jpg',
+      'we_are_alone.png',
+      'bt_blues.jpg'
+    ];
+
+    List<String> albumNames = [
+      'Never Land II',
+      'The Ricky Show',
+      'Human Definition',
+      'We are alone Together',
+      'Blantyre Blues'
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            'assets/img/${albumImages[index]}',
+            width: 170,
+            height: 170,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Text(albumNames[index]),
       ],
     );
   }
