@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyText1: GoogleFonts.openSans(
             fontSize: 14.0,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
+            fontWeight: FontWeight.w400,
+            color: Colors.grey[200],
           ),
           bodyText2: GoogleFonts.openSans(
-            fontSize: 16.0,
+            fontSize: 14.0,
             fontWeight: FontWeight.w400,
-            color: Colors.grey[300],
+            color: Colors.grey[500],
           ),
           headline1: GoogleFonts.openSans(
             fontSize: 25.0,
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
           headline2: GoogleFonts.openSans(
-            fontSize: 23.0,
+            fontSize: 20.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),

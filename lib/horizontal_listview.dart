@@ -10,8 +10,7 @@ class HorizontalListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 280,
-      width: 380,
+      height: 245,
       child: Column(
         children: [
           Padding(
@@ -78,8 +77,8 @@ class HorizontalListView extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           child: Image.asset(
             'assets/img/${artistsImages[index]}',
-            width: 170,
-            height: 170,
+            width: 140,
+            height: 140,
             fit: BoxFit.cover,
           ),
         ),
@@ -112,8 +111,8 @@ class HorizontalListView extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
             'assets/img/${albumImages[index]}',
-            width: 170,
-            height: 170,
+            width: 140,
+            height: 140,
             fit: BoxFit.cover,
           ),
         ),

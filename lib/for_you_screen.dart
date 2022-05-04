@@ -3,7 +3,6 @@ import 'package:waves_clone/actions_row.dart';
 import 'package:waves_clone/app_bar_row.dart';
 import 'package:waves_clone/horizontal_listview.dart';
 import 'package:waves_clone/suggestions_grid.dart';
-import 'package:waves_clone/waves_theme.dart';
 import 'package:waves_clone/welcome_profile.dart';
 
 class ForYouScreen extends StatelessWidget {
@@ -17,10 +16,11 @@ class ForYouScreen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         children: [
           const AppBarRow(),
+          const SizedBox(height: 15),
           const WelcomeProfile(),
           const SizedBox(height: 20),
           const ActionsRow(),
-          buildSuggestions(),
+          buildSuggestions(context),
           const SuggestionsGrid(),
           const HorizontalListView(
             title: 'Top Artists',
@@ -34,12 +34,12 @@ class ForYouScreen extends StatelessWidget {
     );
   }
 
-  Padding buildSuggestions() {
+  Padding buildSuggestions(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
       child: Text(
         'Suggestions',
-        style: WavesTheme.darkTextTheme.headline2,
+        style: Theme.of(context).textTheme.headline2,
       ),
     );
   }

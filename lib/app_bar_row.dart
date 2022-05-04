@@ -17,7 +17,7 @@ class AppBarRow extends StatelessWidget {
         ),
         Text(
           'Waves',
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.headline2,
         ),
         IconButton(
           onPressed: () {},

@@ -11,10 +11,10 @@ class WelcomeProfile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const CircleAvatar(
-            radius: 25,
+            radius: 20,
             backgroundImage: AssetImage('assets/img/profile_img.jpg'),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -24,7 +24,7 @@ class WelcomeProfile extends StatelessWidget {
               ),
               Text(
                 'Chawer',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline2,
               ),
             ],
           )
