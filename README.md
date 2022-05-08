@@ -1,4 +1,4 @@
-# Waved Medial Player UI Clone
+# Waved Media Player UI Clone
 
 A Clone of a Malawian Music Player UI.
 
